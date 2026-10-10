@@ -1,0 +1,359 @@
+/* ============================================================
+   MindCare AI - Behance Cybernetic 3D Dark Theme
+   Based on MindCare Mental Help (Behance Palette & Typography)
+   ============================================================ */
+
+@import url("https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap");
+
+:root {
+  /* Behance Exact Color Swatches */
+  --neon-cyan:      #00c0e8;
+  --neon-cyan-glow: rgba(0, 192, 232, 0.55);
+  --cyan-medium:    #0c7287;
+  --cyan-deep:      #006e84;
+  --cyan-dark:      #004452;
+  --cyan-card:      #024452;
+  --cyan-teal:      #007087;
+
+  /* Grays from Behance Swatches */
+  --gray-light:     #8a8a8a;
+  --gray-mid:       #9c9191;
+  --gray-dark:      #565353;
+
+  /* Deep Cyber Obsidian Base */
+  --bg-base:        #020d14;
+  --bg-surface:     #041620;
+  --bg-card:        rgba(2, 68, 82, 0.45);
+  --bg-card-hover:  rgba(2, 68, 82, 0.75);
+  --border-subtle:  rgba(0, 192, 232, 0.2);
+  --border-glow:    rgba(0, 192, 232, 0.55);
+  --text-primary:   #f0fbff;
+  --text-secondary: #a2c0cb;
+  --text-muted:     #6a8894;
+
+  /* Alerts & Accents */
+  --red-500:        #ef4444;
+  --red-50:         rgba(239, 68, 68, 0.12);
+  --amber-400:      #fbbf24;
+  --amber-100:      rgba(251, 191, 36, 0.15);
+  --teal-400:       #38ef7d;
+  --teal-500:       #00c0e8;
+  --teal-600:       #0c7287;
+
+  /* Gradients */
+  --grad-cyan:      linear-gradient(135deg, #00c0e8 0%, #007087 100%);
+  --grad-card:      linear-gradient(145deg, rgba(2, 68, 82, 0.5) 0%, rgba(2, 44, 53, 0.25) 100%);
+  --grad-hero:      linear-gradient(180deg, rgba(0, 192, 232, 0.12) 0%, rgba(2, 13, 20, 0) 100%);
+
+  /* Shadows */
+  --shadow-glow:    0 0 35px rgba(0, 192, 232, 0.35), 0 0 70px rgba(12, 114, 135, 0.15);
+  --shadow-btn:     0 0 25px rgba(0, 192, 232, 0.5), 0 4px 15px rgba(0, 0, 0, 0.5);
+  --shadow-card:    0 8px 32px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(0, 192, 232, 0.25);
+
+  /* Fonts */
+  --font-display:   "Orbitron", sans-serif;
+  --font-body:      "Plus Jakarta Sans", system-ui, sans-serif;
+
+  /* Radii */
+  --radius-sm:      0.5rem;
+  --radius-md:      0.875rem;
+  --radius-lg:      1.25rem;
+  --radius-xl:      1.75rem;
+  --radius-full:    9999px;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--bg-base);
+  color: var(--text-primary);
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* Futuristic Cybernetic Neural Grid Background */
+.neural-grid-bg {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background-color: #020d14;
+  background-image: 
+    linear-gradient(rgba(0, 192, 232, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 192, 232, 0.05) 1px, transparent 1px),
+    radial-gradient(circle at 50% 20%, rgba(0, 192, 232, 0.12) 0%, transparent 60%),
+    radial-gradient(circle at 85% 75%, rgba(12, 114, 135, 0.15) 0%, transparent 55%);
+  background-size: 40px 40px, 40px 40px, 100% 100%, 100% 100%;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font-family: inherit;
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+input, textarea, select {
+  font-family: inherit;
+  outline: none;
+}
+
+/* ============================================================
+   Typography Helpers
+   ============================================================ */
+.font-orbitron {
+  font-family: var(--font-display);
+}
+
+.text-gradient-cyan {
+  background: linear-gradient(135deg, #ffffff 0%, #00c0e8 60%, #0c7287 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-glow-cyan {
+  text-shadow: 0 0 18px rgba(0, 192, 232, 0.65);
+}
+
+/* ============================================================
+   Buttons & Pills (Direct from Behance Design)
+   ============================================================ */
+.btn-overcome {
+  font-family: var(--font-display);
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  background: linear-gradient(135deg, #00c0e8 0%, #007087 100%);
+  color: #020d14;
+  padding: 0.95rem 2.5rem;
+  border-radius: var(--radius-full);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  box-shadow: 0 0 25px rgba(0, 192, 232, 0.55), 0 4px 15px rgba(0, 0, 0, 0.4);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  cursor: pointer;
+}
+
+.btn-overcome:hover {
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 0 40px rgba(0, 192, 232, 0.8), 0 8px 25px rgba(0, 0, 0, 0.6);
+  color: #000000;
+}
+
+.btn-pill-cyan {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 0.85rem;
+  letter-spacing: 0.08em;
+  background: rgba(2, 68, 82, 0.6);
+  border: 1px solid rgba(0, 192, 232, 0.45);
+  color: #e6faff;
+  padding: 0.65rem 1.6rem;
+  border-radius: var(--radius-full);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all 0.25s ease;
+  backdrop-filter: blur(8px);
+}
+
+.btn-pill-cyan:hover, .btn-pill-cyan.active {
+  background: rgba(0, 192, 232, 0.2);
+  border-color: var(--neon-cyan);
+  box-shadow: 0 0 20px rgba(0, 192, 232, 0.45);
+  transform: translateY(-1px);
+}
+
+.btn-outline-cyan {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 0.875rem;
+  letter-spacing: 0.06em;
+  border: 1.5px solid var(--neon-cyan);
+  color: var(--neon-cyan);
+  background: rgba(0, 192, 232, 0.06);
+  padding: 0.85rem 2rem;
+  border-radius: var(--radius-full);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  transition: all 0.25s ease;
+  backdrop-filter: blur(8px);
+}
+
+.btn-outline-cyan:hover {
+  background: var(--neon-cyan);
+  color: #020d14;
+  box-shadow: 0 0 25px rgba(0, 192, 232, 0.5);
+  transform: translateY(-2px);
+}
+
+/* ============================================================
+   Cards & Panels
+   ============================================================ */
+.mc-card {
+  background: linear-gradient(145deg, rgba(2, 68, 82, 0.5) 0%, rgba(2, 44, 53, 0.25) 100%);
+  border: 1px solid rgba(0, 192, 232, 0.25);
+  border-radius: 1.5rem;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  box-shadow: var(--shadow-card);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.mc-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(0, 192, 232, 0.5), transparent);
+}
+
+.mc-card:hover {
+  border-color: rgba(0, 192, 232, 0.6);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.7), 0 0 30px rgba(0, 192, 232, 0.35);
+  transform: translateY(-3px);
+}
+
+.mc-card-glow {
+  background: linear-gradient(135deg, rgba(0, 68, 82, 0.7) 0%, rgba(2, 44, 53, 0.45) 100%);
+  border: 1.5px solid var(--neon-cyan);
+  box-shadow: 0 0 35px rgba(0, 192, 232, 0.3), inset 0 0 15px rgba(0, 192, 232, 0.1);
+  border-radius: 1.5rem;
+  backdrop-filter: blur(20px);
+}
+
+/* ============================================================
+   Interactive Assessment & Mood Badges
+   ============================================================ */
+.mood-pill {
+  padding: 0.5rem 1rem;
+  border-radius: var(--radius-full);
+  font-family: var(--font-display);
+  font-size: 0.75rem;
+  letter-spacing: 0.05em;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border: 1px solid rgba(0, 192, 232, 0.25);
+  background: rgba(2, 44, 53, 0.5);
+  color: var(--text-secondary);
+}
+
+.mood-pill:hover, .mood-pill.active {
+  background: rgba(0, 192, 232, 0.2);
+  border-color: var(--neon-cyan);
+  color: #ffffff;
+  box-shadow: 0 0 16px rgba(0, 192, 232, 0.4);
+}
+
+/* ============================================================
+   Animations & Keyframes
+   ============================================================ */
+@keyframes pulseGlow {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(0, 192, 232, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 45px rgba(0, 192, 232, 0.85);
+  }
+}
+
+.animate-glow {
+  animation: pulseGlow 3s infinite ease-in-out;
+}
+
+@keyframes floatY {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+.animate-float {
+  animation: floatY 5s infinite ease-in-out;
+}
+
+/* Glass Inputs */
+.mc-input {
+  background: rgba(2, 44, 53, 0.6);
+  border: 1px solid rgba(0, 192, 232, 0.3);
+  border-radius: 0.875rem;
+  color: #f0fbff;
+  padding: 0.875rem 1.25rem;
+  transition: all 0.2s ease;
+  width: 100%;
+}
+
+.mc-input:focus {
+  border-color: var(--neon-cyan);
+  box-shadow: 0 0 20px rgba(0, 192, 232, 0.35);
+  background: rgba(2, 44, 53, 0.85);
+}
+
+.mc-input::placeholder {
+  color: var(--text-muted);
+}
+
+/* Toast */
+.toast {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  background: #022b35;
+  border: 1px solid var(--neon-cyan);
+  box-shadow: 0 0 25px rgba(0, 192, 232, 0.5);
+  color: #f0fbff;
+  padding: 0.85rem 1.75rem;
+  border-radius: var(--radius-full);
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+  letter-spacing: 0.05em;
+  z-index: 9999;
+  animation: floatY 0.3s ease-out;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #020d14;
+}
+::-webkit-scrollbar-thumb {
+  background: #004452;
+  border-radius: 4px;
+  border: 1px solid rgba(0, 192, 232, 0.3);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #006e84;
+}
