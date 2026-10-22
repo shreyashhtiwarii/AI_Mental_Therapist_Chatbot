@@ -2,13 +2,18 @@
 Not a substitute for professional care. It never diagnoses and cannot contact anyone on your behalf.
 
 ## Run locally (needs Python 3.10+ and Node 18+)
+
+### Option 1: Single Unified Command (Recommended)
+Run both frontend and backend together on a single port:
+```powershell
+python run.py
+```
+*(Or double-click `run.bat` on Windows. Both UI and API are served together at `http://localhost:5000`)*
+
+### Option 2: Separate Terminals (Development Mode)
 **Backend**
 ```
 cd backend
-python -m venv venv
-source venv/bin/activate        # Windows: venv\Scripts\activate
-pip install -r requirements.txt
-cp ../.env.example ../.env      # Windows: copy ..\.env.example ..\.env
 python app.py                   # http://localhost:5000
 ```
 **Frontend** (new terminal)

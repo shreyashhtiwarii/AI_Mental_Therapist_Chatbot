@@ -10,6 +10,7 @@ frontend/yarn-error.log*
 # Python / Backend
 backend/__pycache__/
 backend/instance/
+instance/
 backend/.env
 backend/*.db
 backend/*.sqlite

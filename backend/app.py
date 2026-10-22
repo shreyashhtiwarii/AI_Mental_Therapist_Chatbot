@@ -1,7 +1,8 @@
-import os, re
+import os, sys, re
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from datetime import datetime, timedelta
 from dotenv import load_dotenv
-from flask import Flask, jsonify, request
+from flask import Flask, jsonify, request, send_from_directory
 from flask_cors import CORS
 from flask_jwt_extended import JWTManager, create_access_token, jwt_required, get_jwt_identity
 from sqlalchemy import func
@@ -259,6 +260,19 @@ def create_app(db_url=None):
 
     @app.get("/api/health")
     def health(): return jsonify(status="ok")
+
+    dist_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "frontend", "dist"))
+    if os.path.exists(dist_dir):
+        @app.route("/", defaults={"path": ""})
+        @app.route("/<path:path>")
+        def serve_frontend(path):
+            if path.startswith("api/") or path == "api":
+                return jsonify(error="Not found."), 404
+            file_path = os.path.join(dist_dir, path)
+            if path != "" and os.path.exists(file_path) and not os.path.isdir(file_path):
+                return send_from_directory(dist_dir, path)
+            return send_from_directory(dist_dir, "index.html")
+
 
     with app.app_context():
         db.create_all()
